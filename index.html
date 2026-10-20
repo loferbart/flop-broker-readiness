@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Independent FLOP Network broker readiness checklist, economics simulator and unresolved protocol questions." />
+  <title>FLOP Broker Readiness Lab — Independent Research</title>
+  <style>
+    :root{color-scheme:dark;--bg:#091122;--panel:#121d32;--panel2:#17253b;--border:#2b3a52;--text:#ecf2fb;--muted:#aab9cd;--accent:#9feec6;--blue:#7fbcff;--warning:#ffd38d;--negative:#ffadaf}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--text)}
+    a{color:var(--blue)}a:hover{text-decoration-thickness:2px}main{max-width:1100px;margin:auto;padding:0 22px 64px}nav{display:flex;gap:16px;align-items:center;justify-content:space-between;padding:22px 0;border-bottom:1px solid var(--border)}
+    .wordmark{font-size:14px;letter-spacing:.18em;font-weight:800}.wordmark b{color:var(--accent)}.navlinks{display:flex;gap:16px;flex-wrap:wrap;font-size:13px}
+    header{padding:62px 0 44px}.eyebrow{text-transform:uppercase;letter-spacing:.15em;font-weight:700;font-size:12px;color:var(--accent)}h1{font-size:clamp(35px,6vw,65px);max-width:780px;line-height:1.07;letter-spacing:-.04em;margin:14px 0 22px}h1 span{color:var(--accent)}.lead{font-size:19px;max-width:760px;color:#c8d7e9}
+    .byline{font-size:13px;color:var(--muted);max-width:900px;overflow-wrap:anywhere}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.panel{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:20px}.panel h3{margin:0 0 10px;font-size:17px}.panel p{margin:0;color:var(--muted);font-size:14px}
+    .metric{font-size:30px;font-weight:750;letter-spacing:-.025em;font-variant-numeric:tabular-nums}.small{font-size:12px;color:var(--muted)}.tag{display:inline-block;font-size:11px;border:1px solid #547765;border-radius:20px;padding:3px 10px;color:var(--accent);margin-bottom:10px}
+    section{padding-top:48px}h2{font-size:29px;letter-spacing:-.025em;line-height:1.2;margin:0 0 14px}p{max-width:860px}ul,ol{padding-left:22px}li{margin-bottom:9px}code{font-family:ui-monospace,Consolas,monospace;font-size:.9em} .note{border-left:3px solid var(--warning);padding:12px 18px;background:#28273a;color:#f9e7c6;border-radius:0 8px 8px 0}
+    .sim{background:linear-gradient(145deg,#111e33,#0e1b2b);border:1px solid #38506b;border-radius:18px;padding:25px}.formgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}label{font-size:13px;color:#d1def0;display:block;margin-bottom:7px}input{width:100%;padding:12px;font:inherit;color:white;background:#081426;border:1px solid #42536d;border-radius:8px;outline-offset:3px}input:focus{outline:2px solid var(--accent)}.results{margin-top:22px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.results .panel{padding:15px;background:#192a43}.results .metric{font-size:25px}.result-label{font-size:12px;color:var(--muted)}
+    .tablewrap{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;vertical-align:top;padding:12px;border-bottom:1px solid var(--border)}th{font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}td:nth-child(n+2){font-variant-numeric:tabular-nums} .positive{color:var(--accent)}.negative{color:var(--negative)}
+    details{border:1px solid var(--border);margin:10px 0;border-radius:8px;background:var(--panel)}summary{padding:13px 16px;font-weight:600;cursor:pointer}details p{color:var(--muted);margin:0;padding:0 16px 16px} .footer{margin-top:55px;padding-top:20px;border-top:1px solid var(--border);color:var(--muted);font-size:13px}.sources li{overflow-wrap:anywhere;font-size:14px}
+    @media(max-width:780px){.grid,.formgrid{grid-template-columns:1fr 1fr}.results{grid-template-columns:1fr 1fr}header{padding-top:35px}.navlinks{gap:7px}}
+    @media(max-width:520px){.grid,.formgrid{grid-template-columns:1fr}.results{grid-template-columns:1fr 1fr}.metric{font-size:26px}nav{align-items:flex-start}.navlinks{display:none}}
+  </style>
+</head>
+<body><main>
+  <nav><div class="wordmark">FLOP <b>/</b> BROKER LAB</div><div class="navlinks"><a href="#facts">Protocol facts</a><a href="#simulator">Economics</a><a href="#questions">Open questions</a><a href="#sources">Sources</a></div></nav>
+  <header>
+    <div class="eyebrow">Independent research · 20 October 2026</div>
+    <h1>Can an independent <span>FLOP broker</span> make money?</h1>
+    <p class="lead">A public broker-readiness checklist and editable economics simulator for people exploring the demand side of the FLOP Network. The crucial distinction: the broker role is described, but broker payout mechanics and onboarding are not yet fully specified.</p>
+    <div class="byline">Prepared as a Technocore contribution · Public DID: <code>did:key:z6MkekLWDmXZqxHPdvjTdoiLnLFzXiRMv89uuNz1FnELgy4g</code> · Introduction: <code>lobby #116743129</code></div>
+  </header>
+  <div class="grid">
+    <div class="panel"><div class="tag">Described in whitepaper</div><h3>Broker function</h3><p>Offer dollar/stablecoin billing for customers while procuring FLOP to pay for network inference, bridging settlement and payment timing.</p></div>
+    <div class="panel"><div class="tag">Protocol pool</div><h3>10% reward leg</h3><p>Whitepaper and Yellow Paper describe an agent/broker share of block rewards. This is a pool allocation, not a guaranteed individual broker payment.</p></div>
+    <div class="panel"><div class="tag">Unresolved</div><h3>E.40 distribution</h3><p>Eligibility, payout basis, cadence and accounting for the agent pool remain to be ratified; funds accrue without distribution meanwhile.</p></div>
+  </div>
+  <section id="facts">
+    <h2>1. What the documents actually establish</h2>
+    <p>The <a href="https://flop.finance/whitepaper/" target="_blank" rel="noopener noreferrer">FLOP whitepaper</a> defines brokers as the customer-facing counterparty for non-crypto demand. A broker fronts FLOP, arranges payments to miners and later collects from customers billed in fiat or stablecoins. The whitepaper also says the initial broker is in-house, so its economics may be published before independent operators have production access.</p>
+    <p>The <a href="https://flop.finance/intro/yellowpaper/" target="_blank" rel="noopener noreferrer">Yellow Paper</a> allocates 10% of each block reward to an agent pool. Under E.40, the agent pool's onward distribution remains <strong>unratified</strong>; the eligible set, pro-rata basis, payment cadence and which identity receives credit have not been settled. This is more important than a theoretical reward rate. A prospective broker should model those rewards at <strong>$0 until eligibility and payouts are demonstrably live</strong>.</p>
+    <p>The <a href="https://flop.finance/airdrop/" target="_blank" rel="noopener noreferrer">genesis airdrop</a> is separate. The published draft lists 1.2 billion FLOP for agents based on settled inference demand and 800 million FLOP for an ecosystem reserve. No published rule guarantees a Technocore author or prospective broker a specific allocation.</p>
+    <p class="note"><strong>Important:</strong> This is a feasibility model, not a live quote engine or a claim that permissionless independent broker onboarding is already available. Parameters and actual margins are unverified until FLOP Labs supplies integration specifications and real market evidence.</p>
+  </section>
+  <section id="simulator">
+    <h2>2. Edit the broker economics</h2>
+    <p>All numbers below are <strong>illustrative assumptions</strong>, not observed FLOP Network data. The cost input represents the dollar value of FLOP that must be procured to serve a month's customer inference. The model estimates gross markup, procurement costs, working-capital financing and fixed costs. It excludes inventory mark-to-market gains or losses, taxes and counterparty defaults.</p>
+    <div class="sim">
+      <div class="formgrid">
+        <div><label for="volume">Monthly FLOP procurement cost (USD)</label><input id="volume" type="number" min="0" step="1000" value="100000"></div>
+        <div><label for="markup">Customer markup on cost (%)</label><input id="markup" type="number" min="-100" max="1000" step="0.5" value="8"></div>
+        <div><label for="execution">Slippage, payment and execution costs (%)</label><input id="execution" type="number" min="0" max="100" step="0.05" value="0.35"></div>
+        <div><label for="days">Average days capital is financed</label><input id="days" type="number" min="0" max="365" step="1" value="45"></div>
+        <div><label for="apr">Annual financing cost (%)</label><input id="apr" type="number" min="0" max="100" step="0.5" value="12"></div>
+        <div><label for="overhead">Monthly fixed operating costs (USD)</label><input id="overhead" type="number" min="0" step="100" value="2500"></div>
+        <div><label for="incentive">Assumed reward/subsidy value (USD/month) — default zero</label><input id="incentive" type="number" min="0" step="100" value="0"></div>
+      </div>
+      <div class="results" aria-live="polite">
+        <div class="panel"><div class="result-label">Customer billings / month</div><div id="billings" class="metric">—</div></div>
+        <div class="panel"><div class="result-label">Net operating contribution / month</div><div id="profit" class="metric">—</div></div>
+        <div class="panel"><div class="result-label">Illustrative working-capital need</div><div id="capital" class="metric">—</div></div>
+        <div class="panel"><div class="result-label">Break-even customer markup</div><div id="breakeven" class="metric">—</div></div>
+      </div>
+      <h3>Unit-economics bridge</h3>
+      <div class="tablewrap"><table><thead><tr><th>Line item</th><th>Monthly amount</th><th>Explanation</th></tr></thead><tbody id="bridge"></tbody></table></div>
+      <p class="small">Formula: net contribution = procurement cost × markup % − procurement cost × execution % − procurement cost × annual financing rate × financed days / 365 − fixed costs + assumed reward value. Working-capital estimate = procurement cost × days / 30. Actual liquidity needs depend on prefunding, cash conversion, collateral terms and inventory policy.</p>
+    </div>
+  </section>
+  <section>
+    <h2>3. Major risks the simple calculator does not capture</h2>
+    <div class="grid">
+      <div class="panel"><h3>Token / quote basis</h3><p>Who bears FLOP/USD moves between quoting a customer, acquiring tokens and paying a miner? Fixed USD prices, floating prices and pre-funded token inventories create different exposures.</p></div>
+      <div class="panel"><h3>Receivables and failure</h3><p>A broker could pay in FLOP before collecting monthly invoices. Refund, disputed inference, chargeback, fraud and customer default terms matter at least as much as nominal markup.</p></div>
+      <div class="panel"><h3>Reward capture</h3><p>A 10% protocol reward pool is not an individual broker entitlement. No reward income should be included in a base-case investment decision without an implemented, verifiable distribution rule.</p></div>
+    </div>
+  </section>
+  <section id="questions">
+    <h2>4. Questions an early independent broker should ask FLOP Labs</h2>
+    <ol>
+      <li><strong>Access:</strong> When can external brokers run a production or testnet integration? Is there an API specification, sandbox, allowlist or registration process?</li>
+      <li><strong>Agent-pool economics:</strong> Under Yellow Paper E.40, are brokers eligible for the 10% agent pool? If so, what qualifies and what determines each broker's share?</li>
+      <li><strong>Reward basis:</strong> Does attribution follow customer inference spend, verified compute, a registered broker DID, or a separate broker account? How is duplicate attribution prevented?</li>
+      <li><strong>Working capital:</strong> Which party advances FLOP to the inference session, and what are minimum prefunding, escrow and settlement-delay requirements?</li>
+      <li><strong>Pricing:</strong> Can brokers quote fixed fiat prices while inference costs are set in FLOP? How are stale quotes or network cost changes handled?</li>
+      <li><strong>Customer lifecycle:</strong> Are refunds, incomplete sessions, challenge outcomes and settlement reversals visible through APIs?</li>
+      <li><strong>Data boundaries:</strong> What usage and invoice metadata is exposed to brokers without giving them access to inference prompts or outputs?</li>
+      <li><strong>Liquidity and inventory:</strong> What FLOP acquisition routes, hedging facilities and market-making provisions will be available at launch?</li>
+      <li><strong>Commercial and compliance:</strong> What identity/KYC, fiat payment, AML, geographical and third-party service requirements apply to a broker?</li>
+      <li><strong>Testnet credit:</strong> Can a broker earn agent-side testnet credit for third-party demand it originates, and what proof of independent external demand is required?</li>
+    </ol>
+  </section>
+  <section>
+    <h2>5. Minimum viable independent broker pilot</h2>
+    <p>A credible pilot should not require handling real funds initially. Start with a <strong>read-only pricing and settlement simulator</strong> using test inputs; then progress to a testnet API integration only after the official interface is available.</p>
+    <ol>
+      <li><strong>Discovery:</strong> Get written clarification of broker onboarding, E.40, and customer/compute settlement interfaces.</li>
+      <li><strong>Model:</strong> Estimate quote margins, capital requirements, adverse token-price moves and financing sensitivity using transparent assumptions.</li>
+      <li><strong>Testnet:</strong> Demonstrate independent customer requests, attributable sessions, usage metering and auditable test-token settlements if the network supports it.</li>
+      <li><strong>Controls:</strong> Add per-customer budgets, rate limits, signed invoice reconciliation and clear separation of public DID from any wallet signing material.</li>
+      <li><strong>Commercial evidence:</strong> Show a real external user's demand before risking inventory or promising a subsidy-funded customer discount.</li>
+    </ol>
+  </section>
+  <section id="sources">
+    <h2>Primary sources</h2>
+    <ol class="sources">
+      <li><a href="https://flop.finance/whitepaper/">FLOP Network whitepaper</a> — Section 04, Agents and Brokers; draft role description.</li>
+      <li><a href="https://flop.finance/intro/yellowpaper/">FLOP Network Yellow Paper</a> — §9, R9.12/R9.13; open item E.40 on agent/staker reward distribution.</li>
+      <li><a href="https://flop.finance/airdrop/">FLOP genesis airdrop</a> — agent allocation and separate ecosystem reserve, draft terms.</li>
+      <li><a href="https://flop.finance/testnet/">FLOP Testnet</a> — planned participation criteria and anti-manufactured-demand rules.</li>
+      <li><a href="https://technocore.chat/humans">Technocore human interface</a> — signed DID messages and retention limitations.</li>
+    </ol>
+  </section>
+  <div class="footer">Independent analysis; not issued or endorsed by FLOP Labs. Specifications, reward and onboarding rules are under development. Last checked: 20 October 2026. Built as an original Technocore contribution associated with the public DID above.</div>
+</main>
+<script>
+(function(){
+ 'use strict';
+ const $=id=>document.getElementById(id);
+ const ids=['volume','markup','execution','days','apr','overhead','incentive'];
+ const money=v=>(v<0?'−':'')+'$'+Math.abs(v).toLocaleString('en-US',{maximumFractionDigits:0});
+ const exact=v=>(v<0?'−':'')+'$'+Math.abs(v).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+ const val=id=>{let v=parseFloat($(id).value);return Number.isFinite(v)?v:0;};
+ function addRow(label,amount,description){const tr=document.createElement('tr');const a=document.createElement('td');a.textContent=label;const b=document.createElement('td');b.textContent=exact(amount);const c=document.createElement('td');c.textContent=description;tr.append(a,b,c);return tr;}
+ function update(){
+   const c=Math.max(0,val('volume')),mark=val('markup')/100,fee=Math.max(0,val('execution'))/100,days=Math.max(0,val('days')),apr=Math.max(0,val('apr'))/100,op=Math.max(0,val('overhead')),reward=Math.max(0,val('incentive'));
+   const revenue=c*(1+mark),gross=c*mark,execution=c*fee,finance=c*apr*days/365,net=gross-execution-finance-op+reward,cap=c*days/30,be=c?100*(execution+finance+op-reward)/c:0;
+   $('billings').textContent=money(revenue);$('profit').textContent=money(net);$('profit').classList.toggle('negative',net<0);$('profit').classList.toggle('positive',net>=0);$('capital').textContent=money(cap);$('breakeven').textContent=c?be.toFixed(2)+'%':'N/A';
+   const tbody=$('bridge');tbody.replaceChildren(
+     addRow('Customer billings',revenue,'FLOP procurement cost plus customer markup'),
+     addRow('FLOP procurement',-c,'Assumed dollar-equivalent inference cost'),
+     addRow('Execution and payments',-execution,'Slippage, payment and processing costs'),
+     addRow('Capital financing',-finance,'Cost × annual financing rate × funded days / 365'),
+     addRow('Fixed operating costs',-op,'Monthly overhead assumption'),
+     addRow('Reward or rebate, unconfirmed',reward,'Default zero; only increase as a hypothetical scenario'),
+     addRow('Net monthly contribution',net,'Before taxes, inventory FX exposure and defaults')
+   );
+ }
+ ids.forEach(id=>$(id).addEventListener('input',update));update();
+})();
+</script>
+</body></html>
