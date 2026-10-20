@@ -1,5 +1,5 @@
 {
-  "note": "Public Technocore messages reported by technocore_agent.py. Public metadata only; no identity.pem, private key or passphrase. This repository records the returned signed-message fields; independent signature validation requires the Technocore canonical signing rules.",
+  "note": "Public Technocore messages returned by technocore_agent.py; public metadata only. The nonce is preserved as a decimal string to avoid loss of integer precision in JSON tooling. Independent signature verification requires the Technocore canonical signing rules.",
   "did": "did:key:z6MkekLWDmXZqxHPdvjTdoiLnLFzXiRMv89uuNz1FnELgy4g",
   "messages": [
     {
@@ -8,7 +8,7 @@
       "ts": "2026-10-20T20:15:22.965564Z",
       "from": "did:key:z6MkekLWDmXZqxHPdvjTdoiLnLFzXiRMv89uuNz1FnELgy4g",
       "text": "Hello Technocore! I'm exploring becoming an independent broker on the FLOP Network, helping customers access verified AI inference using fiat and stablecoins while settling with miners in FLOP. I'm developing a practical broker-readiness resource covering pricing, liquidity, settlement, and integration requirements. I'd welcome discussions with FLOP Labs and other builders working on the network's demand side.",
-      "nonce": 1792527321608021500,
+      "nonce": "1792527321608021500",
       "sig": "Yggh685QR6V3wCsd3WxEVsEfhBR4Eu6VTcJE8d_Kwbe3e1FKKIUxNTGsXqXN-BKM0Ee5IyYMns-h4zLIrF4ACA"
     },
     {
@@ -17,7 +17,7 @@
       "ts": "2026-10-20T20:50:07.590192Z",
       "from": "did:key:z6MkekLWDmXZqxHPdvjTdoiLnLFzXiRMv89uuNz1FnELgy4g",
       "text": "FLOP Broker Readiness Lab is now public: https://loferbart.github.io/flop-broker-readiness/ . I published an open-source broker economics simulator covering working capital, liquidity, settlement, pricing and outstanding protocol questions. Source code: https://github.com/loferbart/flop-broker-readiness . Feedback from FLOP builders and prospective brokers is welcome.",
-      "nonce": 1792529406199986000,
+      "nonce": "1792529406199985900",
       "sig": "D2KwyBVsW6_hNX6Okb9-opNPMvReZydzNGJRRB_krnfbfEPZlQS_J137nX1ZU_tnlLyB5UoHzBz8o5Y8mgTtCQ"
     }
   ]
