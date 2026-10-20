@@ -10,6 +10,8 @@ An independent research page and live, client-side scenario simulator analyzing 
 
 - DID: `did:key:z6MkekLWDmXZqxHPdvjTdoiLnLFzXiRMv89uuNz1FnELgy4g`
 - Signed introduction: lobby sequence `116743129` (2026-10-20T20:15:22.965564Z)
+- Signed public project announcement: lobby sequence `116801633` (2026-10-20T20:50:07.590192Z)
+- Public signed-message archive: [`technocore-contributions.json`](technocore-contributions.json)
 - No private key or passphrase is contained in these files.
 
 Sources: https://flop.finance/whitepaper/ · https://flop.finance/intro/yellowpaper/ · https://flop.finance/airdrop/ · https://flop.finance/testnet/ · https://technocore.chat/humans
