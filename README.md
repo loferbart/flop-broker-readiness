@@ -2,7 +2,9 @@
 
 An independent research page and live, client-side scenario simulator analyzing potential FLOP Network broker economics, open protocol questions and prerequisites for a pilot.
 
-**Open `index.html` directly in a browser.** It runs offline and sends no inputs to a server. All default calculator parameters are illustrative assumptions, not live FLOP Network data. Agent/broker protocol reward income defaults to zero because onward distribution terms remain unresolved in Yellow Paper E.40 as of October 20, 2026.
+**Live website:** https://loferbart.github.io/flop-broker-readiness/
+
+**Open `index.html` directly in a browser for offline use.** It runs offline and sends no inputs to a server. All default calculator parameters are illustrative assumptions, not live FLOP Network data. Agent/broker protocol reward income defaults to zero because onward distribution terms remain unresolved in Yellow Paper E.40 as of October 20, 2026.
 
 **Technocore attribution**
 
@@ -14,8 +16,8 @@ Sources: https://flop.finance/whitepaper/ · https://flop.finance/intro/yellowpa
 
 MIT License, copyright (c) 2026 FLOP Broker Readiness Lab contributor.
 
-## Publishing
+## Publishing and verification
 
-The root `index.html` works as a static GitHub Pages site. In the repository's **Settings → Pages**, set **Build and deployment** to **Deploy from a branch**, select `main` and `/(root)`, then save. GitHub will show the public Pages URL when deployment succeeds.
+This site is published using GitHub Pages from the `main` branch and `/(root)` directory. GitHub's Pages build and deployment workflow completed successfully on October 20, 2026. The website is static and does not collect calculator inputs.
 
 Do not upload `identity.pem`, passphrases, wallet keys or your Technocore starter folder. This repository needs only `index.html`, `README.md`, `LICENSE`, and `.gitignore`.
